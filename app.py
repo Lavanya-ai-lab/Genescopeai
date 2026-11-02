@@ -10,7 +10,9 @@ from langgraph.types import Command
 
 from src.graph.workflow import build_workflow
 from src.visualization.relationship_map import show_relationship_map
-from src.visualization.research_conclusion import research_conclusion
+from src.visualization.research_conclusion import research_conclusion, review_policy_answer
+from src.observability import graph_config, research_trace
+from src.visualization.reliability_studio import show_reliability_studio
 
 
 @st.cache_data
@@ -275,12 +277,8 @@ if "research_question" not in st.session_state:
     st.session_state.research_question = ""
 
 
-def get_config():
-    return {
-        "configurable": {
-            "thread_id": st.session_state.thread_id
-        }
-    }
+def get_config(phase="research"):
+    return graph_config(st.session_state.thread_id, phase)
 
 
 # =========================================================
@@ -364,7 +362,7 @@ def show_human_review(result):
                 try:
                     with st.spinner(
                         "Resuming workflow..."
-                    ):
+                    ), research_trace():
                         resumed = graph.invoke(
                             Command(
                                 resume={
@@ -372,7 +370,7 @@ def show_human_review(result):
                                     "feedback": review_feedback,
                                 }
                             ),
-                            config=get_config(),
+                            config=get_config("review_resume"),
                         )
 
                     st.session_state.research_result = resumed
@@ -394,7 +392,7 @@ def show_human_review(result):
                 try:
                     with st.spinner(
                         "Resuming workflow..."
-                    ):
+                    ), research_trace():
                         resumed = graph.invoke(
                             Command(
                                 resume={
@@ -402,7 +400,7 @@ def show_human_review(result):
                                     "feedback": review_feedback,
                                 }
                             ),
-                            config=get_config(),
+                            config=get_config("review_resume"),
                         )
 
                     st.session_state.research_result = resumed
@@ -592,27 +590,27 @@ def run_research_stream(initial_state, activity_panel, agent_panel):
     refresh_panels()
 
     # 'updates' emits a dict keyed by the node that just finished.
-    for update in graph.stream(initial_state, config=get_config(), stream_mode="updates"):
-        if not isinstance(update, dict):
-            continue
-        for node, payload in update.items():
-            if node == "__interrupt__":
+    with research_trace():
+        for update in graph.stream(initial_state, config=get_config(), stream_mode="updates"):
+            if not isinstance(update, dict):
                 continue
-            if node not in completed:
-                completed.append(node)
-                display_name = next(
-                    (name for step, name, _, _ in WORKFLOW_STEPS if step == node), node
+            for node, payload in update.items():
+                if node == "__interrupt__":
+                    continue
+                if node not in completed:
+                    completed.append(node)
+                    display_name = next(
+                        (name for step, name, _, _ in WORKFLOW_STEPS if step == node), node
+                    )
+                    activity.append(f"{display_name} completed")
+                # The next expected node is a visual indication only.
+                # It is not marked completed until a real update arrives.
+                next_step = next(
+                    (step for step, _, _, _ in WORKFLOW_STEPS if step not in completed),
+                    None,
                 )
-                activity.append(f"{display_name} completed")
-            # The next expected node is a visual indication only.
-            # It is not marked completed until a real update arrives.
-            next_step = next(
-                (step for step, _, _, _ in WORKFLOW_STEPS if step not in completed),
-                None,
-            )
-            current = next_step
-            refresh_panels()
-
+                current = next_step
+                refresh_panels()
     snapshot = graph.get_state(get_config())
     state = dict(snapshot.values or {})
     interrupts = [
@@ -666,6 +664,11 @@ CLARIFICATION_OPTIONS = {
     ),
 }
 CUSTOM_QUESTION_OPTION = "Other — specify my research question"
+
+
+def use_example_question():
+    # Streamlit runs callbacks before recreating the question widget.
+    st.session_state.question_input = "Does APOE epsilon 4 guarantee Alzheimer's disease?"
 
 
 def show_clarification(activity_panel, agent_panel):
@@ -744,6 +747,9 @@ with main_col:
                 st.warning("Please enter a research question.")
             else:
                 start_research(question, activity_panel, agent_panel)
+        st.button("Try an example question", on_click=use_example_question, key="use_example_question")
+        st.caption("Try: Does APOE epsilon 4 guarantee Alzheimer's disease? Select the example, then Run research.")
+        st.caption("Current scope: indexed APOE and Alzheimer's disease research. This is a limited evidence snapshot, not a comprehensive or current clinical review.")
 
     result = st.session_state.research_result
     if result and result.get("needs_clarification"):
@@ -762,9 +768,14 @@ with main_col:
         b.metric("Candidate links", relationship_count)
         c.metric("AI-assessed findings", finding_count)
 
-    tab_graph, tab_summary, tab_evidence, tab_agents = st.tabs(
-        ["Knowledge Graph", "Summary", "Evidence", "Agent Insights"]
+    tab_graph, tab_summary, tab_evidence, tab_agents, tab_reliability = st.tabs(
+        ["Knowledge Graph", "Summary", "Evidence", "Agent Insights", "Reliability Studio"],
+        key="workspace_tabs", on_change="rerun",
     )
+
+    with tab_reliability:
+        if tab_reliability.open:
+            show_reliability_studio()
 
     with tab_graph:
         st.subheader("Gene–variant–disease relationships")
@@ -811,11 +822,13 @@ with main_col:
             conclusion = research_conclusion(result)
             if conclusion is not None:
                 with st.container(border=True, key="research-conclusion"):
-                    st.subheader("Research Conclusion")
+                    policy_answer = review_policy_answer(result.get("question", ""))
+                    st.subheader("Review policy" if policy_answer else "Research Conclusion")
                     st.write(conclusion)
                     st.caption(
-                        "Based on model-assessed findings from the indexed evidence; "
-                        "not independent scientific verification."
+                        "Application workflow rule; not a scientific finding."
+                        if policy_answer else
+                        "Based on model-assessed findings from the indexed evidence; not independent scientific verification."
                     )
         st.subheader("Research Summary")
         if not result:

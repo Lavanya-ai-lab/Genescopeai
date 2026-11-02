@@ -30,6 +30,9 @@ class ResearchState(TypedDict):
     # Evidence-grounded research summary
     research_summary: str
 
+    # Original generation retained for traceability, not a supported answer.
+    research_summary_draft: str
+
     # Findings supported by scientific evidence
     findings: list[dict[str, Any]]
 

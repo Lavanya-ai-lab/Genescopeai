@@ -1,0 +1,13 @@
+case_id,priority,issue,reviewer,reviewed_at,application_failure_decision,evaluator_decision,source_based_rationale
+E08,P0,confirmed_routing_failure,,,,,
+K07,P0,confirmed_routing_failure_with_overlapping_evaluator_flags,,,,,
+K01,P0,unsupported_corpus_inference_human_adjudication_pending,,,,,
+K08,P0,unsupported_molecular_detail_human_adjudication_pending,,,,,
+H05,P0,confirmed_ncbi_citation_parser_defect,,,,,
+K06,P0,confirmed_ncbi_citation_parser_defect,,,,,
+A05,P0,evaluator_false_negative_plus_citation_refusal_ambiguity,,,,,
+W04,P0,semantic_evaluation_unavailable_with_additional_unsupported_claim,,,,,
+W08,P0,evaluator_false_negative_and_unvalidated_summary_exposure,,,,,
+A04,P1,likely_evaluator_false_positive_on_refused_citation,,,,,
+A03,P1,disputed_conclusion_quality_not_adversarial_compliance_failure,,,,,
+A06,P1,disputed_conclusion_quality_with_correct_review_interrupt,,,,,

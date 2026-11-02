@@ -5,6 +5,7 @@ results without a structured answer receive a qualified fallback.
 """
 
 import re
+from src.agents.evidence_rules import source_ids, precision_is_grounded, requires_exact_precision
 
 
 INSUFFICIENT_CONCLUSION = "Insufficient evidence to reach a reliable conclusion"
@@ -22,6 +23,22 @@ ANSWER_PREFIXES = {
 LEADING_ANSWER = re.compile(
     r"^(yes|no|the evidence is inconclusive)\s*[,.:;!?]\s*", re.IGNORECASE
 )
+REVIEW_ACTION = re.compile(
+    r"\b(?:i|we|you|humans?|researchers?|reviewers?)\s+(?:have\s+)?approv(?:e|ed)\b"
+    r"|\b(?:my|our|human|researcher|reviewer)\s+approval\b", re.I
+)
+PROOF_REQUEST = re.compile(r"\b(?:prove|proves|proof|verify|verified|verification|scientifically|true)\b", re.I)
+
+
+def review_policy_answer(question):
+    """An application invariant, not a keyword-based biological conclusion.
+
+The model cannot redefine what this application's approval action means.
+Keep this administrative answer separately labeled in the UI.
+"""
+    if REVIEW_ACTION.search(question or "") and PROOF_REQUEST.search(question or ""):
+        return "No. Researcher approval records a review decision; it does not independently verify a scientific relationship."
+    return None
 
 
 def _short_answer(conclusion, question):
@@ -42,7 +59,7 @@ def _short_answer(conclusion, question):
         or (question_type == "open" and kind in {"yes", "no"})
         or not isinstance(text, str)
         or not text.strip()
-        or bool(re.search(r"pubmed_\d+", text))
+        or bool(source_ids(text))
     ):
         return None
     body = " ".join(text.split())
@@ -66,6 +83,9 @@ def research_conclusion(result):
     """Use a supported direct answer, or explain why one is unavailable."""
     if result.get("needs_clarification") or result.get("out_of_scope"):
         return None
+    policy = review_policy_answer(result.get("question", ""))
+    if policy:
+        return policy
     if result.get("errors") or not result.get("research_summary"):
         return INSUFFICIENT_CONCLUSION
 
@@ -90,7 +110,7 @@ def research_conclusion(result):
             or not citations
             or set(citations) != set(claim.get("citations", []))
             or not set(citations).issubset(sources)
-            or not set(re.findall(r"pubmed_\d+", statement)).issubset(citations)
+            or not set(source_ids(statement)).issubset(citations)
             or " ".join(statement.split()) not in summary
         ):
             continue
@@ -100,6 +120,15 @@ def research_conclusion(result):
             continue
         answer = _short_answer(conclusion, result.get("question", ""))
         if answer:
+            passages = [e.get("content", "") for e in result.get("retrieved_evidence", [])
+                        if e.get("document_id") in citations]
+            # A model-supported label alone is not sufficient for a precise
+            # answer. Yes/no adds an inference to a source quote; qualify it.
+            body = conclusion.get("text", "")
+            if requires_exact_precision(body) and (
+                conclusion.get("answer") in {"yes", "no"} or not precision_is_grounded(body, passages)
+            ):
+                continue
             answers.append((conclusion["answer"], answer))
 
     if not has_supported_findings:

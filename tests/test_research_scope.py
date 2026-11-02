@@ -45,6 +45,7 @@ def response(content):
 
 @pytest.fixture
 def offline(monkeypatch, tmp_path):
+    monkeypatch.setenv("LANGSMITH_TRACING", "false")
     research = importlib.import_module("src.agents.research_agent")
     summary = importlib.import_module("src.agents.summarize_evidence")
     validator = importlib.import_module("src.agents.evidence_validator")
@@ -98,6 +99,8 @@ def offline(monkeypatch, tmp_path):
     "Tell me what to investigate.",
     "  WHAT  should\nI investigate NEXT?!  ",
     "Please tell us what to study next.",
+    "Could you please suggest what we should investigate next?",
+    "Can you recommend what to research next?",
     "What should we investigate next?",
     "What should I research?",
     "What next?",
@@ -121,6 +124,8 @@ def test_vague_questions_stop_before_retrieval(offline, question):
 @pytest.mark.parametrize("question, topic", [
     (BRCA_QUESTION, "BRCA1"),
     ("Which brca1 mutation causes breast cancer?", "BRCA1"),
+    ("I know your collection contains APOE. Which BRCA1 mutation causes breast cancer?", "BRCA1"),
+    ("Your collection contains APOE; which BRCA1 mutation causes breast cancer?", "BRCA1"),
     ("How does CFTR affect cystic fibrosis?", "CFTR"),
     ("What genetic factors affect breast cancer?", "breast cancer"),
 ])
@@ -367,7 +372,7 @@ def test_clarification_requires_selection_without_duplicate_prompt(offline):
     assert app.radio[0].label == "Which aspect of APOE research would you like to investigate?"
     assert sum(item.value == "#### Help us refine your research question" for item in app.markdown) == 1
     assert "Please clarify your research objective before continuing." in [item.value for item in app.warning]
-    for tab in app.tabs:
+    for tab in app.tabs[:4]:
         assert NOT_STARTED in [item.value for item in tab.info]
         assert result["clarification_question"] not in [item.value for item in tab.info]
     # An ordinary rerun cannot implicitly choose an option or begin retrieval.
@@ -648,7 +653,11 @@ def test_direct_answer_uses_existing_assessment_call_and_supported_claim_only(of
     offline.validation.assert_called_once()
     messages = offline.validation.call_args.kwargs["messages"]
     assert APOE_QUESTION in messages[1]["content"]
-    assert result["research_summary"] == SUMMARY
+    assert result["research_summary_draft"] == SUMMARY
+    if status == "supported":
+        assert result["research_summary"] == SUMMARY
+    else:
+        assert result["research_summary"] == "The indexed evidence is insufficient to answer this question reliably."
     claim = next(check for check in result["validation_results"]
                  if check["check"] == "claim_evidence_validation")["claims"][0]
     assert ("conclusion" in claim) is (status == "supported")
@@ -659,6 +668,18 @@ def test_direct_answer_uses_existing_assessment_call_and_supported_claim_only(of
     else:
         assert not result["findings"]
         assert not result["relationships"]
+
+
+def test_review_policy_is_labeled_as_application_rule_instead_of_scientific_finding(offline):
+    app = AppTest.from_file(str(APP_PATH)).run()
+    question = "If I approve an APOE epsilon 4 relationship, does that scientifically prove it is true?"
+    app.text_input(key="question_input").set_value(question)
+    app.button[0].click().run()
+    assert not app.exception
+    assert "Review policy" in [x.value for x in app.tabs[1].subheader]
+    assert "Research Conclusion" not in [x.value for x in app.tabs[1].subheader]
+    assert any("does not independently verify" in x.value for x in app.tabs[1].markdown)
+    assert "Application workflow rule; not a scientific finding." in [x.value for x in app.tabs[1].caption]
 
 
 @pytest.mark.parametrize("conclusion", [None, "plain text", ["an invalid answer"]])

@@ -1,0 +1,5 @@
+{
+  "status": "not_configured",
+  "verified": [],
+  "reason": "Set LANGSMITH_API_KEY and LANGSMITH_TRACING=true, then restart this command."
+}

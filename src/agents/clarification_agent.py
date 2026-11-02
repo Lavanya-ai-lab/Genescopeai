@@ -22,7 +22,16 @@ VAGUE_REQUEST = re.compile(
     r"|what (?:is|are) (?:the |our |my )?next steps?"
     r"|what next"
     r"|(?:tell|show) (?:me|us) what to (?:investigate|research|explore|study|do)(?: next)?"
+    r"|(?:(?:could|can|would) you )?(?:please )?(?:suggest|recommend) "
+    r"what (?:(?:i|we) should|to) (?:investigate|research|explore|study|do)(?: next)?"
     r")(?: please)?"
+)
+
+# Ignore explicit collection acknowledgments when identifying the requested
+# topic. Keep real APOE/other-gene comparisons and unfamiliar wording eligible.
+COLLECTION_ACKNOWLEDGMENT = re.compile(
+    r"^(?:i (?:know|understand)(?: that)? (?:your|the)|your|the) "
+    r"(?:indexed )?(?:collection|corpus|knowledge base)\b"
 )
 
 COLLECTION_TERMS = re.compile(
@@ -80,7 +89,12 @@ def clarification_agent(state: ResearchState) -> dict:
         }
 
     unrelated_topic = UNRELATED_TOPICS.search(question)
-    if unrelated_topic and not COLLECTION_TERMS.search(question):
+    request_clauses = [clause.strip() for clause in re.split(r"[.!?;,\n]+", question)]
+    substantive_request = " ".join(
+        clause for clause in request_clauses
+        if clause and not COLLECTION_ACKNOWLEDGMENT.match(clause)
+    ) or question
+    if unrelated_topic and not COLLECTION_TERMS.search(substantive_request):
         topic = unrelated_topic.group()
         if re.fullmatch(r"[a-z]+\d*", topic):
             topic = topic.upper()

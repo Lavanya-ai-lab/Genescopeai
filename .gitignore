@@ -26,3 +26,7 @@ data/processed/
 
 # Streamlit secrets
 .streamlit/secrets.toml
+
+# Raw experiment traces/outputs may contain researcher questions or feedback.
+# Publish only deliberately reviewed, sanitized reports under evals/reports/.
+evals/results/

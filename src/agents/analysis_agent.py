@@ -44,7 +44,7 @@ def extract_relationships(statement: str) -> list[dict]:
 
     # Split contrasting clauses so each allele can be
     # evaluated against its own risk description.
-    clauses = re.split(r"\bwhile\b|\bwhereas\b|;", text)
+    clauses = re.split(r"\bwhile\b|\bwhereas\b|\bin contrast to\b|;", text)
 
     extracted = []
 

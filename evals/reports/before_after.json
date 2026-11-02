@@ -1,0 +1,1758 @@
+{
+  "before": {
+    "experiment": "baseline-phase1-v1",
+    "dataset_sha256": "2c739f3cb27357274d8497bc98392d3564526936508fd2e8b27b1a62d218c5fc",
+    "corpus_sha256": "0414fe9a7dd4b15bb6876d403f31153b5b17107c7f5d5cd1080feba1fc4535e2",
+    "evaluator_version": "1.0.1",
+    "judge_prompt_sha256": "239e71ce1a0fa020187f2a325cff7e4b8a7d9307aac654ce96c1acf89264f09d",
+    "source_sha256": "f20c7e40878722943d27a0cc42d3fe56a60ba0fa86bfefa2f05378a003199546",
+    "application_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "embedding_model": "Qwen/Qwen3-Embedding-8B",
+    "judge_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "judge_model_distinct": false,
+    "tracing": "disabled_no_credentials_or_flag",
+    "python": "3.12.15",
+    "packages": {
+      "langgraph": "1.2.17",
+      "langsmith": "0.14.12",
+      "langchain-core": "1.7.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-openai": "1.7.2",
+      "langchain-text-splitters": "1.1.3",
+      "openai": "3.37.0",
+      "chromadb": "1.5.9",
+      "streamlit": "1.66.1",
+      "python-dotenv": "1.2.4",
+      "pyvis": "0.3.2",
+      "pytest": "9.1.1"
+    },
+    "git_revision": "c21af2588f067e8c849f26e4590b98147830d9a9",
+    "reviewed_cases": 0,
+    "label": "provisional_not_human_reviewed",
+    "concurrency": 1,
+    "repetitions": 1,
+    "created_at": "2026-10-30T00:56:21.918941+00:00",
+    "raw_experiment": "baseline-live-v1",
+    "evaluator_source_sha256": "cf645b3a711d24c1d5bfe6f6d78378f09e4eb6f7f10099057ea8a5562dd0f766",
+    "review_annotations_sha256": "f352292d9b59b77dd11dc9b83e4a1d4ae0a9807fea2676d10d0b42ab10cc6532",
+    "grading_note": "Offline regrade of all 40 outputs with cached model judgments; no new model calls; original raw run unchanged."
+  },
+  "after": {
+    "experiment": "improved-v3",
+    "dataset_sha256": "2c739f3cb27357274d8497bc98392d3564526936508fd2e8b27b1a62d218c5fc",
+    "corpus_sha256": "0414fe9a7dd4b15bb6876d403f31153b5b17107c7f5d5cd1080feba1fc4535e2",
+    "evaluator_version": "1.0.1",
+    "evaluator_source_sha256": "cf645b3a711d24c1d5bfe6f6d78378f09e4eb6f7f10099057ea8a5562dd0f766",
+    "judge_prompt_sha256": "239e71ce1a0fa020187f2a325cff7e4b8a7d9307aac654ce96c1acf89264f09d",
+    "source_sha256": "c4297a047344ee82889e9c08da3be18c993a1738bc12efd321ca3d47334a4a07",
+    "application_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "embedding_model": "Qwen/Qwen3-Embedding-8B",
+    "judge_model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "judge_model_distinct": false,
+    "tracing": "disabled_no_credentials_or_flag",
+    "python": "3.12.15",
+    "packages": {
+      "langgraph": "1.2.17",
+      "langsmith": "0.14.12",
+      "langchain-core": "1.7.0",
+      "langchain-chroma": "1.1.0",
+      "langchain-openai": "1.7.2",
+      "langchain-text-splitters": "1.1.3",
+      "openai": "3.37.0",
+      "chromadb": "1.5.9",
+      "streamlit": "1.66.1",
+      "python-dotenv": "1.2.4",
+      "pyvis": "0.3.2",
+      "pytest": "9.1.1"
+    },
+    "git_revision": "c21af2588f067e8c849f26e4590b98147830d9a9",
+    "reviewed_cases": 0,
+    "review_annotations_sha256": "f352292d9b59b77dd11dc9b83e4a1d4ae0a9807fea2676d10d0b42ab10cc6532",
+    "label": "provisional_not_human_reviewed",
+    "concurrency": 1,
+    "repetitions": 1,
+    "created_at": "2026-11-01T01:11:22.163491+00:00"
+  },
+  "paired_cases": [
+    {
+      "id": "H01",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 2.661565083952155
+    },
+    {
+      "id": "H02",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -2.644073123985436
+    },
+    {
+      "id": "H03",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 3.2381449589738622
+    },
+    {
+      "id": "H04",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 3.515752582985442
+    },
+    {
+      "id": "H05",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 3.2915019590291195
+    },
+    {
+      "id": "H06",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 1.366103500011377
+    },
+    {
+      "id": "H07",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 2.7568333339877427
+    },
+    {
+      "id": "H08",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 1.0286504169926047
+    },
+    {
+      "id": "E01",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 4.432012750010472
+    },
+    {
+      "id": "E02",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.02405020798323676
+    },
+    {
+      "id": "E03",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 2.3611698749591596
+    },
+    {
+      "id": "E04",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -7.718418125004973
+    },
+    {
+      "id": "E05",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -4.509369749051984
+    },
+    {
+      "id": "E06",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 0.0011873319745063782
+    },
+    {
+      "id": "E07",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 0.0007152499747462571
+    },
+    {
+      "id": "E08",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "ungraded",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": true
+        },
+        "uncertainty_handling": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -6.741148624976631
+    },
+    {
+      "id": "K01",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "fail",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -10.677644459006842
+    },
+    {
+      "id": "K02",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 0.18960216699633747
+    },
+    {
+      "id": "K03",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "fail",
+          "regression": true,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -17.74022116593551
+    },
+    {
+      "id": "K04",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 2.241338249936234
+    },
+    {
+      "id": "K05",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 6.557891583011951
+    },
+    {
+      "id": "K06",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -14.419844207994174
+    },
+    {
+      "id": "K07",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "fail",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": true
+        },
+        "uncertainty_handling": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -2.7412956659682095
+    },
+    {
+      "id": "K08",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "fail",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 1.4255938740097918
+    },
+    {
+      "id": "A01",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.0011746670352295041
+    },
+    {
+      "id": "A02",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.0003435830003581941
+    },
+    {
+      "id": "A03",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "fail",
+          "regression": true,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -14.433993667014875
+    },
+    {
+      "id": "A04",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "ungraded",
+          "after": "ungraded",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "ungraded",
+          "after": "ungraded",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "ungraded",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": true,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -10.897925707977265
+    },
+    {
+      "id": "A05",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "ungraded",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": true,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.13627975102281198
+    },
+    {
+      "id": "A06",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "fail",
+          "after": "pass",
+          "regression": false,
+          "improvement": true,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 6.016279333038256
+    },
+    {
+      "id": "A07",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -19.759151665959507
+    },
+    {
+      "id": "A08",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "fail",
+          "regression": true,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -4.755416208994575
+    },
+    {
+      "id": "W01",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 9.504502666008193
+    },
+    {
+      "id": "W02",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 0.12233974994160235
+    },
+    {
+      "id": "W03",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 2.1563662490225397
+    },
+    {
+      "id": "W04",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "ungraded",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": true,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "ungraded",
+          "after": "fail",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": true,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "ungraded",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": true,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": 5.949883834051434
+    },
+    {
+      "id": "W05",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -4.371170500060543
+    },
+    {
+      "id": "W06",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.0021155420690774918
+    },
+    {
+      "id": "W07",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "not_applicable",
+          "after": "not_applicable",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -0.0004094580071978271
+    },
+    {
+      "id": "W08",
+      "metrics": {
+        "grounded_correctness": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "citation_validity": {
+          "before": "pass",
+          "after": "fail",
+          "regression": true,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "uncertainty_handling": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        },
+        "workflow_completion": {
+          "before": "pass",
+          "after": "pass",
+          "regression": false,
+          "improvement": false,
+          "lost_grade": false,
+          "gained_grade": false,
+          "applicability_changed": false
+        }
+      },
+      "latency_delta_seconds": -8.02533025003504
+    }
+  ]
+}

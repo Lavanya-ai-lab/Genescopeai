@@ -7,9 +7,8 @@ Check whether citations in the research summary
 refer to retrieved scientific sources.
 """
 
-import re
-
 from src.graph.state import ResearchState
+from src.agents.evidence_rules import source_ids
 
 
 def validation_agent(state: ResearchState) -> dict:
@@ -24,10 +23,7 @@ def validation_agent(state: ResearchState) -> dict:
         if item.get("document_id")
     }
 
-    # Recognize PubMed citations, including grouped citations.
-    cited_sources = set(
-        re.findall(r"pubmed_\d+", summary, flags=re.IGNORECASE)
-    )
+    cited_sources = set(source_ids(summary))
 
     invalid_citations = sorted(
         cited_sources - available_sources
@@ -46,9 +42,9 @@ def validation_agent(state: ResearchState) -> dict:
             "invalid_citations": invalid_citations,
             "citation_count": len(cited_sources),
             "message": (
-                "All cited PubMed sources were retrieved."
+                "All cited indexed sources were retrieved."
                 if cited_sources and not invalid_citations
-                else "Missing citations or unknown PubMed sources detected."
+                else "Missing citations or unknown indexed sources detected."
             ),
         }
     ]

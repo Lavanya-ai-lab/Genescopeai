@@ -41,6 +41,7 @@ def verified_findings_agent(state: ResearchState) -> dict:
                 "statement": claim["claim_text"],
                 "citations": claim["citations"],
                 "verification_status": "model_assessed_supported",
+                **({"presentation_type": claim["presentation_type"]} if claim.get("presentation_type") else {}),
                 **({"conclusion": claim["conclusion"]} if "conclusion" in claim else {}),
             })
 
