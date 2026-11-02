@@ -1,0 +1,618 @@
+{
+  "case_id": "K01",
+  "thread_id": "5ea1ae80-65ec-41c5-b67f-e7624611dd31",
+  "state": {
+    "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?",
+    "gene": "APOE",
+    "needs_clarification": false,
+    "clarification_question": "",
+    "out_of_scope": false,
+    "scope_message": "",
+    "retrieved_evidence": [
+      {
+        "document_id": "pubmed_33340485",
+        "title": "APOE and Alzheimer's disease: advances in genetics, pathophysiology, and therapeutic approaches.",
+        "chunk_id": "pubmed_33340485_chunk_000",
+        "content": "Abstract: The APOE ε4 allele remains the strongest genetic risk factor for sporadic Alzheimer's disease and the APOE ε2 allele the strongest genetic protective factor after multiple large scale genome-wide association studies and genome-wide association meta-analyses. However, no therapies directed at APOE are currently available. Although initial studies causally linked APOE with amyloid-β peptide aggregation and clearance, over the past 5 years our understanding of APOE pathogenesis has expanded beyond amyloid-β peptide-centric mechanisms to tau neurofibrillary degeneration, microglia and astrocyte responses, and blood-brain barrier disruption",
+        "distance": 0.6934747695922852,
+        "metadata": {
+          "pmid": "33340485",
+          "publication_year": "2021",
+          "title": "APOE and Alzheimer's disease: advances in genetics, pathophysiology, and therapeutic approaches.",
+          "document_id": "pubmed_33340485",
+          "authors": "[\"Alberto Serrano-Pozo\", \"Sudeshna Das\", \"Bradley T Hyman\"]",
+          "chunk_id": "pubmed_33340485_chunk_000",
+          "source": "PubMed",
+          "journal": "The Lancet. Neurology",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/33340485/",
+          "document_type": "research_article",
+          "doi": "10.1016/S1474-4422(20)30412-9"
+        }
+      },
+      {
+        "document_id": "pubmed_33576571",
+        "title": "Harnessing the paradoxical phenotypes of APOE ɛ2 and APOE ɛ4 to identify genetic modifiers in Alzheimer's disease.",
+        "chunk_id": "pubmed_33576571_chunk_000",
+        "content": "Abstract: The strongest genetic risk factor for idiopathic late-onset Alzheimer's disease (LOAD) is apolipoprotein E (APOE) ɛ4, while the APOE ɛ2 allele is protective. However, there are paradoxical APOE ɛ4 carriers who remain disease-free and APOE ɛ2 carriers with LOAD. We compared exomes of healthy APOE ɛ4 carriers and APOE ɛ2 Alzheimer's disease (AD) patients, prioritizing coding variants based on their predicted functional impact, and identified 216 genes with differential mutational load between these two populations. These candidate genes were significantly dysregulated in LOAD brains, and many modulated tau- or β42-induced neurodegeneration in Drosophila",
+        "distance": 0.6985458135604858,
+        "metadata": {
+          "source": "PubMed",
+          "document_id": "pubmed_33576571",
+          "chunk_id": "pubmed_33576571_chunk_000",
+          "publication_year": "2021",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/33576571/",
+          "authors": "[\"Young Won Kim\", \"Ismael Al-Ramahi\", \"Amanda Koire\", \"Stephen J Wilson\", \"Daniel M Konecki\", \"Samantha Mota\", \"Shirin Soleimani\", \"Juan Botas\", \"Olivier Lichtarge\"]",
+          "pmid": "33576571",
+          "document_type": "research_article",
+          "doi": "10.1002/alz.12240",
+          "title": "Harnessing the paradoxical phenotypes of APOE ɛ2 and APOE ɛ4 to identify genetic modifiers in Alzheimer's disease.",
+          "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association"
+        }
+      },
+      {
+        "document_id": "pubmed_36348357",
+        "title": "ApoE in Alzheimer's disease: pathophysiology and therapeutic strategies.",
+        "chunk_id": "pubmed_36348357_chunk_000",
+        "content": "Abstract: Alzheimer's disease (AD) is the most common cause of dementia worldwide, and its prevalence is rapidly increasing due to extended lifespans. Among the increasing number of genetic risk factors identified, the apolipoprotein E (APOE) gene remains the strongest and most prevalent, impacting more than half of all AD cases. While the ε4 allele of the APOE gene significantly increases AD risk, the ε2 allele is protective relative to the common ε3 allele. These gene alleles encode three apoE protein isoforms that differ at two amino acid positions",
+        "distance": 0.7375179529190063,
+        "metadata": {
+          "pmid": "36348357",
+          "authors": "[\"Ana-Caroline Raulin\", \"Sydney V Doss\", \"Zachary A Trottier\", \"Tadafumi C Ikezu\", \"Guojun Bu\", \"Chia-Chen Liu\"]",
+          "chunk_id": "pubmed_36348357_chunk_000",
+          "publication_year": "2022",
+          "journal": "Molecular neurodegeneration",
+          "document_id": "pubmed_36348357",
+          "doi": "10.1186/s13024-022-00574-4",
+          "document_type": "research_article",
+          "source": "PubMed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/36348357/",
+          "title": "ApoE in Alzheimer's disease: pathophysiology and therapeutic strategies."
+        }
+      }
+    ],
+    "research_summary": "The APOE ε4 allele is the strongest known genetic risk factor for late-onset Alzheimer's disease (AD), and evidence indicates it is present in more than half of all AD cases. Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357]. A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357]. Although APOE ε4 is strongly associated with AD, not all carriers develop the disease, and some individuals with the protective ε2 allele do develop AD, indicating the influence of additional genetic and environmental factors [pubmed_33576571]. The pathophysiological mechanisms of APOE extend beyond amyloid-β aggregation to include tau pathology, neuroinflammation, and blood-brain barrier dysfunction [pubmed_33340485]. Despite this, no therapies targeting APOE are currently available [pubmed_33340485]. Thus, while APOE ε4 is present in more than half of Alzheimer's patients, its presence alone is neither necessary nor sufficient for disease development.",
+    "findings": [
+      {
+        "claim_id": "claim_2",
+        "statement": "Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357].",
+        "citations": [
+          "pubmed_33340485",
+          "pubmed_36348357"
+        ],
+        "verification_status": "model_assessed_supported",
+        "conclusion": {
+          "question_type": "yes_no",
+          "answer": "yes",
+          "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts more than half of all AD cases.",
+          "supported": true,
+          "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+        }
+      },
+      {
+        "claim_id": "claim_3",
+        "statement": "A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357].",
+        "citations": [
+          "pubmed_36348357"
+        ],
+        "verification_status": "model_assessed_supported",
+        "conclusion": {
+          "question_type": "yes_no",
+          "answer": "yes",
+          "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts over half of all AD cases.",
+          "supported": true,
+          "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+        }
+      }
+    ],
+    "relationships": [],
+    "review_status": "not_required",
+    "review_feedback": "No relationships available for review.",
+    "approved_relationships": [],
+    "validation_results": [
+      {
+        "check": "citation_source_validation",
+        "passed": true,
+        "available_sources": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ],
+        "valid_citations": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ],
+        "invalid_citations": [],
+        "citation_count": 3,
+        "message": "All cited PubMed sources were retrieved."
+      },
+      {
+        "check": "claim_evidence_validation",
+        "claims": [
+          {
+            "claim_id": "claim_1",
+            "claim_text": "The APOE ε4 allele is the strongest known genetic risk factor for late-onset Alzheimer's disease (AD), and evidence indicates it is present in more than half of all AD cases.",
+            "citations": [],
+            "evidence_status": "insufficient_evidence",
+            "reason": "No matching cited evidence was available."
+          },
+          {
+            "claim_id": "claim_2",
+            "claim_text": "Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357].",
+            "citations": [
+              "pubmed_33340485",
+              "pubmed_36348357"
+            ],
+            "evidence_status": "supported",
+            "reason": "The passage from pubmed_36348357 explicitly states that the APOE ε4 allele impacts more than half of all AD cases.",
+            "conclusion": {
+              "question_type": "yes_no",
+              "answer": "yes",
+              "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts more than half of all AD cases.",
+              "supported": true,
+              "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+            }
+          },
+          {
+            "claim_id": "claim_3",
+            "claim_text": "A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357].",
+            "citations": [
+              "pubmed_36348357"
+            ],
+            "evidence_status": "supported",
+            "reason": "The passage explicitly states that the APOE ε4 allele impacts more than half of all AD cases.",
+            "conclusion": {
+              "question_type": "yes_no",
+              "answer": "yes",
+              "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts over half of all AD cases.",
+              "supported": true,
+              "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+            }
+          },
+          {
+            "claim_id": "claim_4",
+            "claim_text": "Although APOE ε4 is strongly associated with AD, not all carriers develop the disease, and some individuals with the protective ε2 allele do develop AD, indicating the influence of additional genetic and environmental factors [pubmed_33576571].",
+            "citations": [
+              "pubmed_33576571"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage discusses APOE ε4's association with AD and mentions carriers who remain disease-free but does not provide data on the frequency of APOE ε4 among Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_5",
+            "claim_text": "The pathophysiological mechanisms of APOE extend beyond amyloid-β aggregation to include tau pathology, neuroinflammation, and blood-brain barrier dysfunction [pubmed_33340485].",
+            "citations": [
+              "pubmed_33340485"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage confirms APOE ε4 is a major risk factor but does not provide data on its frequency in Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_6",
+            "claim_text": "Despite this, no therapies targeting APOE are currently available [pubmed_33340485].",
+            "citations": [
+              "pubmed_33340485"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage confirms APOE ε4 is a major risk factor but does not provide data on its frequency in Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_7",
+            "claim_text": "Thus, while APOE ε4 is present in more than half of Alzheimer's patients, its presence alone is neither necessary nor sufficient for disease development.",
+            "citations": [],
+            "evidence_status": "insufficient_evidence",
+            "reason": "No matching cited evidence was available."
+          }
+        ],
+        "passed": false
+      }
+    ],
+    "agent_log": [
+      "Clarification Agent: question accepted.",
+      "Research Agent retrieved 3 passages.",
+      "Evidence-grounded research summary generated.",
+      "Validation Agent completed citation-source checks.",
+      "Evidence Validator assessed 7 claims.",
+      "Verified Findings extracted 2 supported claims.",
+      "Analysis Agent extracted 0 candidate relationships.",
+      "Human Review skipped: no relationships."
+    ],
+    "errors": []
+  },
+  "nodes": [
+    "clarification_agent",
+    "research_agent",
+    "summarize_evidence",
+    "validation_agent",
+    "evidence_validator",
+    "verified_findings_agent",
+    "analysis_agent",
+    "human_review_agent"
+  ],
+  "segments": [
+    {
+      "phase": "research",
+      "seconds": 24.610912667005323
+    }
+  ],
+  "trace_ids": [
+    "351773e5-02af-4780-b224-84acd494b0d2"
+  ],
+  "node_timings": [
+    {
+      "node": "clarification_agent",
+      "seconds": 0.001915832981467247,
+      "status": "completed"
+    },
+    {
+      "node": "research_agent",
+      "seconds": 19.91778941702796,
+      "status": "completed"
+    },
+    {
+      "node": "summarize_evidence",
+      "seconds": 1.715187750000041,
+      "status": "completed"
+    },
+    {
+      "node": "validation_agent",
+      "seconds": 6.229197606444359e-05,
+      "status": "completed"
+    },
+    {
+      "node": "evidence_validator",
+      "seconds": 2.962113707966637,
+      "status": "completed"
+    },
+    {
+      "node": "verified_findings_agent",
+      "seconds": 0.0001616660156287253,
+      "status": "completed"
+    },
+    {
+      "node": "analysis_agent",
+      "seconds": 0.00010008300887420774,
+      "status": "completed"
+    },
+    {
+      "node": "human_review_agent",
+      "seconds": 8.950004121288657e-05,
+      "status": "completed"
+    }
+  ],
+  "active_seconds": 24.610912667005323,
+  "awaiting_review": false,
+  "paused_before_resume": false,
+  "fixture": null,
+  "human_action": "none",
+  "human_review": {
+    "status": "draft",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": ""
+  },
+  "before_review": {
+    "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?",
+    "gene": "APOE",
+    "needs_clarification": false,
+    "clarification_question": "",
+    "out_of_scope": false,
+    "scope_message": "",
+    "retrieved_evidence": [
+      {
+        "document_id": "pubmed_33340485",
+        "title": "APOE and Alzheimer's disease: advances in genetics, pathophysiology, and therapeutic approaches.",
+        "chunk_id": "pubmed_33340485_chunk_000",
+        "content": "Abstract: The APOE ε4 allele remains the strongest genetic risk factor for sporadic Alzheimer's disease and the APOE ε2 allele the strongest genetic protective factor after multiple large scale genome-wide association studies and genome-wide association meta-analyses. However, no therapies directed at APOE are currently available. Although initial studies causally linked APOE with amyloid-β peptide aggregation and clearance, over the past 5 years our understanding of APOE pathogenesis has expanded beyond amyloid-β peptide-centric mechanisms to tau neurofibrillary degeneration, microglia and astrocyte responses, and blood-brain barrier disruption",
+        "distance": 0.6934747695922852,
+        "metadata": {
+          "pmid": "33340485",
+          "publication_year": "2021",
+          "title": "APOE and Alzheimer's disease: advances in genetics, pathophysiology, and therapeutic approaches.",
+          "document_id": "pubmed_33340485",
+          "authors": "[\"Alberto Serrano-Pozo\", \"Sudeshna Das\", \"Bradley T Hyman\"]",
+          "chunk_id": "pubmed_33340485_chunk_000",
+          "source": "PubMed",
+          "journal": "The Lancet. Neurology",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/33340485/",
+          "document_type": "research_article",
+          "doi": "10.1016/S1474-4422(20)30412-9"
+        }
+      },
+      {
+        "document_id": "pubmed_33576571",
+        "title": "Harnessing the paradoxical phenotypes of APOE ɛ2 and APOE ɛ4 to identify genetic modifiers in Alzheimer's disease.",
+        "chunk_id": "pubmed_33576571_chunk_000",
+        "content": "Abstract: The strongest genetic risk factor for idiopathic late-onset Alzheimer's disease (LOAD) is apolipoprotein E (APOE) ɛ4, while the APOE ɛ2 allele is protective. However, there are paradoxical APOE ɛ4 carriers who remain disease-free and APOE ɛ2 carriers with LOAD. We compared exomes of healthy APOE ɛ4 carriers and APOE ɛ2 Alzheimer's disease (AD) patients, prioritizing coding variants based on their predicted functional impact, and identified 216 genes with differential mutational load between these two populations. These candidate genes were significantly dysregulated in LOAD brains, and many modulated tau- or β42-induced neurodegeneration in Drosophila",
+        "distance": 0.6985458135604858,
+        "metadata": {
+          "source": "PubMed",
+          "document_id": "pubmed_33576571",
+          "chunk_id": "pubmed_33576571_chunk_000",
+          "publication_year": "2021",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/33576571/",
+          "authors": "[\"Young Won Kim\", \"Ismael Al-Ramahi\", \"Amanda Koire\", \"Stephen J Wilson\", \"Daniel M Konecki\", \"Samantha Mota\", \"Shirin Soleimani\", \"Juan Botas\", \"Olivier Lichtarge\"]",
+          "pmid": "33576571",
+          "document_type": "research_article",
+          "doi": "10.1002/alz.12240",
+          "title": "Harnessing the paradoxical phenotypes of APOE ɛ2 and APOE ɛ4 to identify genetic modifiers in Alzheimer's disease.",
+          "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association"
+        }
+      },
+      {
+        "document_id": "pubmed_36348357",
+        "title": "ApoE in Alzheimer's disease: pathophysiology and therapeutic strategies.",
+        "chunk_id": "pubmed_36348357_chunk_000",
+        "content": "Abstract: Alzheimer's disease (AD) is the most common cause of dementia worldwide, and its prevalence is rapidly increasing due to extended lifespans. Among the increasing number of genetic risk factors identified, the apolipoprotein E (APOE) gene remains the strongest and most prevalent, impacting more than half of all AD cases. While the ε4 allele of the APOE gene significantly increases AD risk, the ε2 allele is protective relative to the common ε3 allele. These gene alleles encode three apoE protein isoforms that differ at two amino acid positions",
+        "distance": 0.7375179529190063,
+        "metadata": {
+          "pmid": "36348357",
+          "authors": "[\"Ana-Caroline Raulin\", \"Sydney V Doss\", \"Zachary A Trottier\", \"Tadafumi C Ikezu\", \"Guojun Bu\", \"Chia-Chen Liu\"]",
+          "chunk_id": "pubmed_36348357_chunk_000",
+          "publication_year": "2022",
+          "journal": "Molecular neurodegeneration",
+          "document_id": "pubmed_36348357",
+          "doi": "10.1186/s13024-022-00574-4",
+          "document_type": "research_article",
+          "source": "PubMed",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/36348357/",
+          "title": "ApoE in Alzheimer's disease: pathophysiology and therapeutic strategies."
+        }
+      }
+    ],
+    "research_summary": "The APOE ε4 allele is the strongest known genetic risk factor for late-onset Alzheimer's disease (AD), and evidence indicates it is present in more than half of all AD cases. Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357]. A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357]. Although APOE ε4 is strongly associated with AD, not all carriers develop the disease, and some individuals with the protective ε2 allele do develop AD, indicating the influence of additional genetic and environmental factors [pubmed_33576571]. The pathophysiological mechanisms of APOE extend beyond amyloid-β aggregation to include tau pathology, neuroinflammation, and blood-brain barrier dysfunction [pubmed_33340485]. Despite this, no therapies targeting APOE are currently available [pubmed_33340485]. Thus, while APOE ε4 is present in more than half of Alzheimer's patients, its presence alone is neither necessary nor sufficient for disease development.",
+    "findings": [
+      {
+        "claim_id": "claim_2",
+        "statement": "Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357].",
+        "citations": [
+          "pubmed_33340485",
+          "pubmed_36348357"
+        ],
+        "verification_status": "model_assessed_supported",
+        "conclusion": {
+          "question_type": "yes_no",
+          "answer": "yes",
+          "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts more than half of all AD cases.",
+          "supported": true,
+          "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+        }
+      },
+      {
+        "claim_id": "claim_3",
+        "statement": "A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357].",
+        "citations": [
+          "pubmed_36348357"
+        ],
+        "verification_status": "model_assessed_supported",
+        "conclusion": {
+          "question_type": "yes_no",
+          "answer": "yes",
+          "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts over half of all AD cases.",
+          "supported": true,
+          "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+        }
+      }
+    ],
+    "relationships": [],
+    "review_status": "not_required",
+    "review_feedback": "No relationships available for review.",
+    "approved_relationships": [],
+    "validation_results": [
+      {
+        "check": "citation_source_validation",
+        "passed": true,
+        "available_sources": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ],
+        "valid_citations": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ],
+        "invalid_citations": [],
+        "citation_count": 3,
+        "message": "All cited PubMed sources were retrieved."
+      },
+      {
+        "check": "claim_evidence_validation",
+        "claims": [
+          {
+            "claim_id": "claim_1",
+            "claim_text": "The APOE ε4 allele is the strongest known genetic risk factor for late-onset Alzheimer's disease (AD), and evidence indicates it is present in more than half of all AD cases.",
+            "citations": [],
+            "evidence_status": "insufficient_evidence",
+            "reason": "No matching cited evidence was available."
+          },
+          {
+            "claim_id": "claim_2",
+            "claim_text": "Multiple large-scale genetic studies confirm that APOE ε4 significantly increases AD risk, while the ε2 allele is protective [pubmed_33340485, pubmed_36348357].",
+            "citations": [
+              "pubmed_33340485",
+              "pubmed_36348357"
+            ],
+            "evidence_status": "supported",
+            "reason": "The passage from pubmed_36348357 explicitly states that the APOE ε4 allele impacts more than half of all AD cases.",
+            "conclusion": {
+              "question_type": "yes_no",
+              "answer": "yes",
+              "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts more than half of all AD cases.",
+              "supported": true,
+              "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+            }
+          },
+          {
+            "claim_id": "claim_3",
+            "claim_text": "A key finding from recent research is that APOE ε4 impacts over half of all AD cases, underscoring its central role in the disease's genetic architecture [pubmed_36348357].",
+            "citations": [
+              "pubmed_36348357"
+            ],
+            "evidence_status": "supported",
+            "reason": "The passage explicitly states that the APOE ε4 allele impacts more than half of all AD cases.",
+            "conclusion": {
+              "question_type": "yes_no",
+              "answer": "yes",
+              "text": "Yes, APOE epsilon 4 occurs in more than half of Alzheimer's patients, as it impacts over half of all AD cases.",
+              "supported": true,
+              "question": "Does APOE epsilon 4 occur in more than half of Alzheimer's patients?"
+            }
+          },
+          {
+            "claim_id": "claim_4",
+            "claim_text": "Although APOE ε4 is strongly associated with AD, not all carriers develop the disease, and some individuals with the protective ε2 allele do develop AD, indicating the influence of additional genetic and environmental factors [pubmed_33576571].",
+            "citations": [
+              "pubmed_33576571"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage discusses APOE ε4's association with AD and mentions carriers who remain disease-free but does not provide data on the frequency of APOE ε4 among Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_5",
+            "claim_text": "The pathophysiological mechanisms of APOE extend beyond amyloid-β aggregation to include tau pathology, neuroinflammation, and blood-brain barrier dysfunction [pubmed_33340485].",
+            "citations": [
+              "pubmed_33340485"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage confirms APOE ε4 is a major risk factor but does not provide data on its frequency in Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_6",
+            "claim_text": "Despite this, no therapies targeting APOE are currently available [pubmed_33340485].",
+            "citations": [
+              "pubmed_33340485"
+            ],
+            "evidence_status": "insufficient_evidence",
+            "reason": "The passage confirms APOE ε4 is a major risk factor but does not provide data on its frequency in Alzheimer's patients."
+          },
+          {
+            "claim_id": "claim_7",
+            "claim_text": "Thus, while APOE ε4 is present in more than half of Alzheimer's patients, its presence alone is neither necessary nor sufficient for disease development.",
+            "citations": [],
+            "evidence_status": "insufficient_evidence",
+            "reason": "No matching cited evidence was available."
+          }
+        ],
+        "passed": false
+      }
+    ],
+    "agent_log": [
+      "Clarification Agent: question accepted.",
+      "Research Agent retrieved 3 passages.",
+      "Evidence-grounded research summary generated.",
+      "Validation Agent completed citation-source checks.",
+      "Evidence Validator assessed 7 claims.",
+      "Verified Findings extracted 2 supported claims.",
+      "Analysis Agent extracted 0 candidate relationships.",
+      "Human Review skipped: no relationships."
+    ],
+    "errors": []
+  },
+  "metrics": {
+    "grounded_correctness": {
+      "status": "fail",
+      "reason": "The visible output claims that APOE ε4 occurs in more than half of Alzheimer's patients, citing that it 'impacts over half of all AD cases' from pubmed_36348357_chunk_000. However, the expected behavior explicitly forbids inferring allele prevalence from a statement about the APOE gene impacting more than half of cases. The retrieved passage does not provide data on the frequency of the ε4 allele among patients, only that the APOE gene is involved in over half of cases. This constitutes an unsupported claim about allele prevalence, violating the forbidden claim about equating gene contribution with allele frequency.",
+      "failure_type": "unsupported_claim",
+      "evidence_chunk_ids": [
+        "pubmed_36348357_chunk_000"
+      ],
+      "assessor": "independent_model_prompt_not_human"
+    },
+    "citation_validity": {
+      "status": "fail",
+      "reason": "The claim that APOE ε4 occurs in more than half of Alzheimer's patients is not entailed by the cited passage (pubmed_36348357_chunk_000), which states that the APOE gene 'impacts more than half of all AD cases'—a statement about genetic contribution, not allele frequency. The citation does not support the specific claim about the ε4 allele's prevalence. Therefore, the citation fails to entail the exact claim made in the conclusion.",
+      "failure_type": "citation_not_entailed",
+      "evidence_chunk_ids": [
+        "pubmed_36348357_chunk_000"
+      ],
+      "assessor": "independent_model_prompt_not_human",
+      "identity_check": {
+        "status": "pass",
+        "reason": "Cited IDs exist in both retrieval and frozen corpus; entailment judged separately.",
+        "cited": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ]
+      }
+    },
+    "uncertainty_handling": {
+      "status": "pass",
+      "reason": "The response acknowledges the complexity of APOE's role, including the fact that not all ε4 carriers develop AD and some ε2 carriers do, indicating that the presence of the allele is not deterministic. This preserves the distinction between risk and certainty, which aligns with proper uncertainty handling. However, this is insufficient to compensate for the unsupported claim about allele frequency.",
+      "failure_type": "none",
+      "evidence_chunk_ids": [],
+      "assessor": "independent_model_prompt_not_human"
+    },
+    "workflow_completion": {
+      "status": "pass",
+      "reason": "Expected route and review lifecycle completed (a planned pause is valid).",
+      "failures": []
+    },
+    "latency": {
+      "status": "pass",
+      "reason": "Measured active wall time; human wait and judge time excluded. No latency SLO claimed.",
+      "seconds": 24.610912667005323,
+      "segments": [
+        {
+          "phase": "research",
+          "seconds": 24.610912667005323
+        }
+      ]
+    }
+  },
+  "evaluator_seconds": 2.9676884170039557,
+  "original_metrics": {
+    "grounded_correctness": {
+      "status": "fail",
+      "reason": "The visible output claims that APOE ε4 occurs in more than half of Alzheimer's patients, citing that it 'impacts over half of all AD cases' from pubmed_36348357_chunk_000. However, the expected behavior explicitly forbids inferring allele prevalence from a statement about the APOE gene impacting more than half of cases. The retrieved passage does not provide data on the frequency of the ε4 allele among patients, only that the APOE gene is involved in over half of cases. This constitutes an unsupported claim about allele prevalence, violating the forbidden claim about equating gene contribution with allele frequency.",
+      "failure_type": "unsupported_claim",
+      "evidence_chunk_ids": [
+        "pubmed_36348357_chunk_000"
+      ],
+      "assessor": "independent_model_prompt_not_human"
+    },
+    "citation_validity": {
+      "status": "fail",
+      "reason": "The claim that APOE ε4 occurs in more than half of Alzheimer's patients is not entailed by the cited passage (pubmed_36348357_chunk_000), which states that the APOE gene 'impacts more than half of all AD cases'—a statement about genetic contribution, not allele frequency. The citation does not support the specific claim about the ε4 allele's prevalence. Therefore, the citation fails to entail the exact claim made in the conclusion.",
+      "failure_type": "citation_not_entailed",
+      "evidence_chunk_ids": [
+        "pubmed_36348357_chunk_000"
+      ],
+      "assessor": "independent_model_prompt_not_human",
+      "identity_check": {
+        "status": "pass",
+        "reason": "Cited IDs exist in both retrieval and frozen corpus; entailment judged separately.",
+        "cited": [
+          "pubmed_33340485",
+          "pubmed_33576571",
+          "pubmed_36348357"
+        ]
+      }
+    },
+    "uncertainty_handling": {
+      "status": "pass",
+      "reason": "The response acknowledges the complexity of APOE's role, including the fact that not all ε4 carriers develop AD and some ε2 carriers do, indicating that the presence of the allele is not deterministic. This preserves the distinction between risk and certainty, which aligns with proper uncertainty handling. However, this is insufficient to compensate for the unsupported claim about allele frequency.",
+      "failure_type": "none",
+      "evidence_chunk_ids": [],
+      "assessor": "independent_model_prompt_not_human"
+    },
+    "workflow_completion": {
+      "status": "pass",
+      "reason": "Expected route and review lifecycle completed (a planned pause is valid).",
+      "failures": []
+    },
+    "latency": {
+      "status": "pass",
+      "reason": "Measured active wall time; human wait and judge time excluded. No latency SLO claimed.",
+      "seconds": 24.610912667005323,
+      "segments": [
+        {
+          "phase": "research",
+          "seconds": 24.610912667005323
+        }
+      ]
+    }
+  },
+  "grading_revision": "1.0.1"
+}

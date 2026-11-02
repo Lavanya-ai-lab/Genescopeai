@@ -1,8 +1,11 @@
 # GeneScopeAI — Week 5 Agent Evaluation Report
 
-**Project:** GeneScopeAI — Evidence-Grounded Genetics Research Assistant  
-**Assignment:** Mastering Agentic AI — Week 5: Evaluate Your Agent  
-**Evaluation date:** November 1, 2026  
+**Project:** GeneScopeAI — Evidence-Grounded Genetics Research Assistant
+
+**Assignment:** Mastering Agentic AI — Week 5: Evaluate Your Agent
+
+**Evaluation date:** November 1, 2026
+
 **Evaluation scope:** APOE and Alzheimer's disease research
 
 ## 1. Executive Summary
@@ -16,9 +19,13 @@ The evaluation used 40 predefined golden test cases and compared baseline and im
 **Key findings:**
 
 - Grounded correctness increased from 84.2% to 92.3%.
+
 - Uncertainty handling increased from 92.3% to 97.4%.
+
 - Workflow completion increased from 95.0% to 97.5%.
+
 - Citation validity declined from 90.0% to 83.9%.
+
 - Observed p95 execution latency decreased from 25.23 to 19.98 seconds.
 
 These results demonstrate measurable improvements alongside remaining reliability weaknesses, particularly in evidence relevance, citation entailment, and adversarial scenarios.
@@ -28,11 +35,17 @@ These results demonstrate measurable improvements alongside remaining reliabilit
 The frozen benchmark, `apoe_v1.jsonl`, contains 40 test cases across five categories:
 
 | Category | Cases | Purpose |
+
 |---|---:|---|
+
 | Happy path | 8 | Standard scientific questions |
+
 | Edge cases | 8 | Ambiguous inputs, notation variants, clarification |
+
 | Known risks | 8 | Unsupported inferences and evidence limitations |
+
 | Adversarial | 8 | Prompt injection, fabricated citations, unsafe claims |
+
 | Workflow | 8 | Human review, retrieval failures, malformed responses |
 
 The expected behaviors and supporting evidence were reviewed separately and documented in `GOLDEN_DATASET_REVIEW.csv`.
@@ -44,23 +57,45 @@ The original frozen JSONL retains its draft annotations to preserve the benchmar
 Four primary quality metrics were used:
 
 1. **Grounded correctness:** Whether the output respects scientific evidence and expected factual behavior.
+
 2. **Citation validity:** Whether cited evidence exists and supports the corresponding claim.
+
 3. **Uncertainty handling:** Whether the system acknowledges limitations and avoids unsupported certainty.
+
 4. **Workflow completion:** Whether routing, validation, and human-review controls behave as intended.
 
 Latency was also measured as a performance metric.
 
 Metric scores are reported as passing cases divided by graded cases. Ungraded and not-applicable cases are excluded from the corresponding pass percentage.
 
+### 3.1 Scoring Method and Proposed Numeric Acceptance Criteria
+
+For the four quality metrics, the recorded pass rate is the number of passing cases divided by the number of cases graded for that metric. Non-applicable and ungraded cases are excluded from the denominator. Case-level outcomes, evaluator judgments, and relevant grading evidence are retained in the saved experiment results and consolidated evaluation workbook. Latency is reported separately, with active execution time excluding human-review waiting time and evaluator calls.
+
+**Proposed future acceptance criteria:** For the next GeneScopeAI iteration, I propose a minimum **95% pass rate** for grounded correctness, citation validity, uncertainty handling, and workflow completion, together with a **p95 active execution latency of 20 seconds or less**.
+
+These numeric pass bars were defined **after** the baseline and improved experiments. They are forward-looking targets, **not pre-established or pre-registered success criteria** for the completed evaluation.
+
+Against these proposed targets, the improved experiment meets the uncertainty-handling target (97.4%), workflow-completion target (97.5%), and p95 latency target (19.98 seconds). It does not meet the grounded-correctness target (92.3%) or citation-validity target (83.9%).
+
+These preliminary thresholds support future comparative testing; they do not establish production readiness, scientific validation, or clinical suitability. Because the dataset is small and specialized, meeting a threshold would not, by itself, demonstrate generalizable reliability.
+
 ## 4. Baseline Versus Improved Results
 
 | Metric | Baseline | Improved | Change |
+
 |---|---:|---:|---:|
+
 | Grounded correctness | 32/38 (84.2%) | 36/39 (92.3%) | +8.1 percentage points |
+
 | Citation validity | 27/30 (90.0%) | 26/31 (83.9%) | −6.1 points |
+
 | Uncertainty handling | 36/39 (92.3%) | 38/39 (97.4%) | +5.1 points |
+
 | Workflow completion | 38/40 (95.0%) | 39/40 (97.5%) | +2.5 points |
+
 | Median latency | 8.21 s | 8.65 s | +0.44 s |
+
 | p95 latency | 25.23 s | 19.98 s | −5.25 s |
 
 Both experiments completed all 40 cases.
@@ -150,9 +185,13 @@ Additional work is needed to establish whether these failures reflect generated 
 Other remaining risks include:
 
 - Using authentic but irrelevant evidence to support a user-facing answer.
+
 - Insufficiently explicit corrections of adversarial scientific premises.
+
 - Variation in model-based judge assessments.
+
 - Incomplete observability of how malformed model output is communicated to users.
+
 - Limited domain coverage beyond the frozen APOE research corpus.
 
 ## 8. Testing and Observability
@@ -166,10 +205,16 @@ The workflow uses LangGraph for multi-stage execution and LangSmith for tracing,
 Supporting artifacts include:
 
 - `evals/apoe_v1.jsonl`
+
 - `evals/reports/GOLDEN_DATASET_REVIEW.csv`
+
 - `evals/reports/BASELINE_FAILURE_AUDIT.md`
+
 - `evals/reports/case_comparison.csv`
+- `evals/reports/GeneScopeAI_Week5_Evaluation_Submission.xlsx` (40-case comparison, measured results, scoring rubric and proposed pass bars)
+
 - `evals/results/baseline-phase1-v1/`
+
 - `evals/results/improved-week5-v1/`
 
 ### LangSmith Trace Evidence
@@ -181,12 +226,19 @@ A hosted LangSmith trace was inspected for the research question:
 The recorded execution demonstrates the following workflow:
 
 1. Clarification Agent — accepts the research question.
+
 2. Research Agent — retrieves scientific passages.
+
 3. Summarization Agent — generates a research summary.
+
 4. Validation Agent — checks cited source identifiers.
+
 5. Evidence Validator — evaluates individual scientific claims.
+
 6. Verified Findings Agent — processes model-assessed supported findings.
+
 7. Analysis Agent — extracts a candidate APOE–Alzheimer's disease relationship.
+
 8. Human Review Agent — invokes a LangGraph `GraphInterrupt` for human approval.
 
 The trace also includes nested Qwen model calls, execution durations, and agent-level inputs and outputs.
