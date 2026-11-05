@@ -314,6 +314,13 @@ def test_streamlit_review_buttons_resume_real_workflow(offline, approved, monkey
     assert not app.exception
     assert "__interrupt__" in app.session_state["research_result"]
     paused = deepcopy(app.session_state["research_result"])
+    assert "No relationships approved yet." in [item.value for item in app.tabs[0].info]
+    assert [item.label for item in app.tabs[0].expander][0] == "Candidate history and review details"
+    # Before review, the only rendered map belongs to candidate history.
+    assert map_display.call_count == 1
+    assert map_display.call_args.args[0] == paused["relationships"]
+    assert map_display.call_args.kwargs["review_status"] != "approved"
+    map_display.reset_mock()
     app.text_area(key="review_feedback").set_value("UI review test")
     label = "Approve Relationships" if approved else "Reject Relationships"
     next(button for button in app.button if button.label == label).click().run()
@@ -329,13 +336,85 @@ def test_streamlit_review_buttons_resume_real_workflow(offline, approved, monkey
     assert map_display.call_args.args[0] == paused["relationships"]
     for field in ("retrieved_evidence", "research_summary", "findings", "relationships", "validation_results"):
         assert result[field] == paused[field]
+    # Clicking review renders the old candidate history before st.rerun()
+    # displays the recorded decision. Inspect maps from the completed rerun.
+    reviewed_maps = [
+        call for call in map_display.call_args_list
+        if call.kwargs["review_status"] == result["review_status"]
+    ]
     if approved:
+        assert len(reviewed_maps) == 2
+        assert reviewed_maps[0].args[0] == result["approved_relationships"]
+        assert reviewed_maps[0].kwargs["review_status"] == "approved"
+        assert "No relationships approved yet." not in [item.value for item in app.tabs[0].info]
         assert any("does not independently establish scientific validity" in item.value for item in app.caption)
         assert result["approved_relationships"] == paused["relationships"]
     else:
+        assert len(reviewed_maps) == 1
+        assert "No approved relationships. The researcher rejected the candidates." in [
+            item.value for item in app.tabs[0].info
+        ]
         assert "Rejected by researcher" in [item.value for item in app.warning]
         assert "UI review test" in [item.value for item in app.text]
         assert result["approved_relationships"] == []
+
+
+def test_final_graph_uses_approved_subset_and_history_keeps_all_candidates(offline, monkeypatch):
+    maps = importlib.import_module("src.visualization.relationship_map")
+    map_display = Mock(wraps=maps.show_relationship_map)
+    monkeypatch.setattr(maps, "show_relationship_map", map_display)
+    thread = config()
+    offline.graph.invoke(initial_state(APOE_QUESTION), config=thread)
+    result = offline.graph.invoke(Command(resume={"approved": True}), config=thread)
+    # A display fixture with distinct lists catches accidentally graphing all
+    # candidates, even though the current review action approves a whole batch.
+    extra_candidate = {
+        **result["relationships"][0], "allele": "APOE ε2",
+        "relationship_type": "decreased_risk",
+        "statement": "Synthetic candidate retained only in history.",
+    }
+    result["relationships"] = result["relationships"] + [extra_candidate]
+    app = AppTest.from_file(str(APP_PATH))
+    app.session_state["research_result"] = deepcopy(result)
+    app.run()
+    assert not app.exception
+    assert "Final approved graph" in [item.value for item in app.tabs[0].subheader]
+    assert map_display.call_count == 2
+    assert map_display.call_args_list[0].args[0] == result["approved_relationships"]
+    assert extra_candidate not in map_display.call_args_list[0].args[0]
+    assert map_display.call_args_list[1].args[0] == result["relationships"]
+    history = app.tabs[0].expander[0]
+    assert history.label == "Candidate history and review details"
+    assert len(history.expander) == len(result["relationships"])
+    assert extra_candidate["statement"] in [item.value for item in history.markdown]
+    assert app.session_state["research_result"] == result
+
+
+@pytest.mark.parametrize("approved", [True, False])
+def test_new_supported_run_clears_previous_graph_and_review_history(offline, approved, monkeypatch):
+    maps = importlib.import_module("src.visualization.relationship_map")
+    map_display = Mock(wraps=maps.show_relationship_map)
+    monkeypatch.setattr(maps, "show_relationship_map", map_display)
+    app = AppTest.from_file(str(APP_PATH)).run()
+    app.text_input(key="question_input").set_value(APOE_QUESTION)
+    click_button(app, "Run research")
+    app.text_area(key="review_feedback").set_value("Previous run decision")
+    click_button(app, "Approve Relationships" if approved else "Reject Relationships")
+    previous_thread = app.session_state["thread_id"]
+    map_display.reset_mock()
+    click_button(app, "Run research")
+    result = app.session_state["research_result"]
+    assert app.session_state["thread_id"] != previous_thread
+    assert "__interrupt__" in result
+    assert not result.get("approved_relationships")
+    assert not result.get("review_status")
+    assert not result.get("review_feedback")
+    assert app.text_area(key="review_feedback").value == ""
+    assert "No relationships approved yet." in [item.value for item in app.tabs[0].info]
+    assert "Rejected by researcher" not in [item.value for item in app.warning]
+    assert map_display.call_count == 1
+    assert map_display.call_args.kwargs["review_status"] != "approved"
+    assert map_display.call_args.args[0] == result["relationships"]
 
 
 RISK_OPTION = "Genetic risk associated with APOE variants"
@@ -749,7 +828,10 @@ def test_rejection_preserves_candidates_and_only_displays_actual_reason(offline,
         assert result[field] == paused[field]
     assert "Rejected by researcher" in [item.value for item in app.warning]
     assert "#### Candidate genetic relationships" in [item.value for item in app.tabs[0].markdown]
-    assert len(app.tabs[0].expander) == len(paused["relationships"])
+    history = app.tabs[0].expander[0]
+    assert history.label == "Candidate history and review details"
+    assert len(history.expander) == len(paused["relationships"])
+    assert "#### Candidate genetic relationships" in [item.value for item in history.markdown]
     displayed_text = [item.value for item in app.text]
     if feedback.strip():
         assert feedback in displayed_text

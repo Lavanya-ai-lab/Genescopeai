@@ -27,9 +27,11 @@ flowchart LR
     H -->|Same thread resumes| D[Approve or reject]
 ```
 
-Empty retrieval or generation errors stop downstream work. The knowledge graph
-shows candidate/review status. Rejection retains candidate traceability and the
-actual entered feedback, while leaving approved relationships empty. The in-memory
+Empty retrieval or generation errors stop downstream work. The final approved
+graph shows only researcher-approved relationships. An expandable candidate
+history preserves the candidate map and review status, including rejected edges.
+Rejection retains candidate traceability and the actual entered feedback, while
+leaving the final approved graph empty. The in-memory
 checkpointer survives Streamlit reruns, not server restarts.
 
 ## Local setup
@@ -224,9 +226,17 @@ configured LangSmith workspace; keep credentials and private feedback protected.
 1. Click Try an example question; confirm it fills the input without running research.
 2. Ask “What should I investigate next?” Confirm clarification and zero evidence.
 3. Select genetic risk and continue; the refined question starts a fresh thread.
-4. Inspect the conclusion, detailed summary, source excerpts and candidate graph.
-5. Reject with a reason; confirm candidates remain visible and approved count is zero.
-6. Start a new supported risk run and approve; approval remains distinct from proof.
+4. Inspect the conclusion, detailed summary and source excerpts. In Knowledge Graph,
+   confirm the final approved graph says “No relationships approved yet.” Open
+   Candidate history and review details to inspect the candidate map and citations.
+5. Enter a reason and reject. Confirm the final approved graph has no edges and the
+   approved count is zero. Expand the candidate history to see the rejected edges;
+   confirm the actual rejection reason and scientific evidence are preserved.
+6. Start a new supported risk run. Confirm the previous decision and feedback are
+   cleared and the final graph remains empty pending review. Approve and confirm
+   the final graph shows the approved relationships. Approval remains distinct from
+   independent scientific verification. These steps require indexed evidence that
+   supports a candidate; a run without supported candidates correctly skips review.
 7. Ask a BRCA1 question prefaced by “I know your collection contains APOE.” Confirm the scope stop.
 8. Open Reliability Studio, inspect K01's historical unsupported conclusion, and
    compare with the final saved response and exact source passages. Inspect H02

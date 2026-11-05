@@ -778,9 +778,9 @@ with main_col:
             show_reliability_studio()
 
     with tab_graph:
-        st.subheader("Gene–variant–disease relationships")
+        st.subheader("Final approved graph")
         st.caption(
-            "Interactive map of AI-extracted candidate relationships. "
+            "Only researcher-approved relationships appear in this graph. "
             "Human approval is a review decision, not independent scientific verification."
         )
         if not result:
@@ -790,7 +790,7 @@ with main_col:
                 '<span class="map-node">Gene</span><span class="map-connector" aria-hidden="true">→</span>'
                 '<span class="map-node variant">Variant</span><span class="map-connector" aria-hidden="true">→</span>'
                 '<span class="map-node disease">Disease</span></div>'
-                '<h4>Your relationship map starts here</h4>'
+                '<h4>Your approved relationship map starts here</h4>'
                 '<p>Enter a research question above to explore candidate connections and the evidence behind them.</p>'
                 '</div>',
                 unsafe_allow_html=True,
@@ -799,20 +799,40 @@ with main_col:
             st.info("No relationships available for this question.")
         else:
             relationships = result.get("relationships") or []
-            if relationships:
-                show_relationship_map(relationships, review_status=result.get("review_status"))
-                st.markdown("#### Candidate genetic relationships")
-                for index, relationship in enumerate(relationships, 1):
-                    allele = relationship.get("allele", "Unknown variant")
-                    disease = relationship.get("disease", "Unknown disease")
-                    kind = str(relationship.get("relationship_type", "associated")).replace("_", " ")
-                    with st.expander(f"{index}. {allele} → {kind} → {disease}"):
-                        st.write(relationship.get("statement") or "AI-extracted candidate relationship")
-                        citations = relationship.get("citations") or []
-                        if citations:
-                            st.write("**Supporting citations:**", ", ".join(map(str, citations)))
+            review_status = result.get("review_status")
+            approved_relationships = (
+                result.get("approved_relationships") or []
+                if review_status == "approved" else []
+            )
+            if approved_relationships:
+                show_relationship_map(approved_relationships, review_status="approved")
+            elif review_status == "rejected":
+                st.info("No approved relationships. The researcher rejected the candidates.")
+            elif relationships:
+                st.info("No relationships approved yet.")
             else:
                 st.info(research_outcome_message(result))
+
+            if relationships:
+                with st.expander(
+                    "Candidate history and review details",
+                    expanded=bool(result.get("__interrupt__")),
+                ):
+                    st.caption(
+                        "Candidates retained for traceability. "
+                        "Rejected and unreviewed candidates are excluded from the final approved graph."
+                    )
+                    show_relationship_map(relationships, review_status=review_status)
+                    st.markdown("#### Candidate genetic relationships")
+                    for index, relationship in enumerate(relationships, 1):
+                        allele = relationship.get("allele", "Unknown variant")
+                        disease = relationship.get("disease", "Unknown disease")
+                        kind = str(relationship.get("relationship_type", "associated")).replace("_", " ")
+                        with st.expander(f"{index}. {allele} → {kind} → {disease}"):
+                            st.write(relationship.get("statement") or "AI-extracted candidate relationship")
+                            citations = relationship.get("citations") or []
+                            if citations:
+                                st.write("**Supporting citations:**", ", ".join(map(str, citations)))
             if result.get("review_status") not in {"approved", "rejected"}:
                 st.divider()
             show_human_review(result)
