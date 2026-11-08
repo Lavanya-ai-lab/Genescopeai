@@ -1,0 +1,6 @@
+id,actual,predicted,correct
+GSA-010,supported,supported,True
+GSA-096,insufficient_evidence,insufficient_evidence,True
+GSA-093,insufficient_evidence,insufficient_evidence,True
+GSA-094,supported,supported,True
+GSA-009,insufficient_evidence,insufficient_evidence,True
