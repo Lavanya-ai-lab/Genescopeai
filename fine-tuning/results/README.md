@@ -64,3 +64,20 @@ Training loss decreased substantially overall, although it increased in the thir
 Fine-tuning improved accuracy from 91.67% to 100% on the held-out validation set and corrected two cases where the original model confused insufficient evidence with contradiction.
 
 The findings are encouraging but require confirmation on larger, independently constructed datasets.
+## LoRA Merge and Smoke Test
+
+The trained GeneScopeAI LoRA adapter was successfully merged into the original Qwen3-1.7B-Base model using PEFT's `merge_and_unload()` method.
+
+The merged model was loaded on a Tesla T4 GPU and tested against five held-out validation examples.
+
+**Smoke Test Results:**
+- Total examples tested: 5
+- Correct predictions: 5
+- Incorrect predictions: 0
+- Smoke-test accuracy: 100%
+
+The smoke test confirmed that the merged model could perform inference and correctly classify all five selected examples.
+
+**Evidence:** `GeneScopeAI_merge_smoke_test.csv`
+
+**Limitation:** This is a small smoke test, not an independent assessment of generalization. The original fine-tuned model's 24-example validation accuracy was measured separately.
