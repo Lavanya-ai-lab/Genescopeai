@@ -1,0 +1,27 @@
+{
+  "project": "GeneScopeAI Evidence Classification",
+  "base_model": "Qwen/Qwen3-1.7B-Base",
+  "method": "4-bit LoRA (QLoRA)",
+  "training_examples": 96,
+  "validation_examples": 24,
+  "epochs": 3,
+  "optimizer_steps": 36,
+  "shared_group_ids": 0,
+  "baseline": {
+    "accuracy": 0.9166666666666666,
+    "macro_precision": 0.9333333333333332,
+    "macro_recall": 0.9166666666666666,
+    "macro_f1": 0.9153439153439153
+  },
+  "fine_tuned": {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0
+  },
+  "limitations": [
+    "Small validation sample of 24 records",
+    "Synthetic source-informed dataset",
+    "Not an independent external test set"
+  ]
+}
