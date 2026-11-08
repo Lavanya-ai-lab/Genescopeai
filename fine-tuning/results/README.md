@@ -81,3 +81,41 @@ The smoke test confirmed that the merged model could perform inference and corre
 **Evidence:** `GeneScopeAI_merge_smoke_test.csv`
 
 **Limitation:** This is a small smoke test, not an independent assessment of generalization. The original fine-tuned model's 24-example validation accuracy was measured separately.
+
+## Full Merged-Model Validation Results
+
+After successfully merging the trained LoRA adapter into Qwen3-1.7B-Base using PEFT's `merge_and_unload()`, I evaluated the merged model against the full 24-example held-out validation set.
+
+### Results
+
+| Metric | Result |
+|---|---|
+| Total validation examples | 24 |
+| Correct predictions | 24 |
+| Incorrect predictions | 0 |
+| Accuracy | 100.00% |
+| Macro precision | 1.00 |
+| Macro recall | 1.00 |
+| Macro F1 | 1.00 |
+
+All three categories—supported, contradicted, and insufficient_evidence—achieved precision, recall, and F1 scores of 1.00, with eight validation examples per category.
+
+### Before-and-After Comparison
+
+| Model | Accuracy |
+|---|---|
+| Original Qwen3-1.7B-Base | 91.67% |
+| Fine-tuned Qwen with LoRA | 100.00% |
+| Merged fine-tuned Qwen | 100.00% |
+
+The merged model preserved the fine-tuned model's observed classification performance on this validation set.
+
+### Evidence
+
+- `GeneScopeAI_merge_smoke_test.csv`
+- `GeneScopeAI_merged_validation_predictions.csv`
+- `GeneScopeAI_merged_confusion_matrix.png`
+
+### Limitations
+
+These results come from a small, synthetic, source-informed dataset. Although the validation examples were separated from training by concept group, the results do not establish generalization to independently collected research passages or clinical use.
