@@ -35,4 +35,4 @@ These results are from a small, source-informed synthetic validation dataset. Th
 
 This project is educational and is not intended for medical diagnosis or clinical decision-making.
 
-Additional methodology, reproducibility instructions, and evaluation artifacts will be documented here.
+For implementation details, see the [fine-tuning notebook](notebooks/GeneScopeAI_FineTuning_GitHub_Reviewed.ipynb), [model card](MODEL_CARD.md), [dataset documentation](data/README.md), and [evaluation results](results/README.md).
